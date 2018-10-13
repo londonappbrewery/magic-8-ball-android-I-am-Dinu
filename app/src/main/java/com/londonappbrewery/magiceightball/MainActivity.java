@@ -11,12 +11,15 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         final ImageView ballDisplay;
+        final MediaPlayer mp;
 
 
         ballDisplay = (ImageView) findViewById(R.id.displayBall);
@@ -33,11 +36,13 @@ public class MainActivity extends AppCompatActivity {
         Button myButton;
 
         myButton = (Button) findViewById(R.id.askButton);
+        mp = MediaPlayer.create(getApplicationContext(),R.raw.bubblesound);
+
 
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mp.start();
                 Random randomNumber = new Random();
 
                 int number = randomNumber.nextInt(4);
